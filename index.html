@@ -84,7 +84,7 @@ a{text-decoration:none;color:inherit}
 .about{background:#0b0e1a}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .about-image{position:relative}
-.about-image .img-placeholder{width:100%;aspect-ratio:1;border-radius:20px;background:linear-gradient(135deg,rgba(245,166,35,.1),rgba(108,99,255,.08));border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:120px;overflow:hidden}
+.about-image .img-placeholder{width:100%;aspect-ratio:1;border-radius:20px;background:linear-gradient(135deg,rgba(245,166,35,.1),rgba(108,99,255,.08));border:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden}
 .about-image .img-placeholder .emoji{font-size:100px}
 .about-image .exp-badge{position:absolute;bottom:-20px;right:-20px;background:linear-gradient(135deg,#f5a623,#e8831a);color:#0b0e1a;padding:20px 28px;border-radius:16px;font-weight:800;text-align:center}
 .about-image .exp-badge .num{font-size:36px;display:block;line-height:1}
@@ -347,7 +347,16 @@ a{text-decoration:none;color:inherit}
   <div class="container">
     <div class="about-grid">
       <div class="about-image fade-in-left">
-        <div class="img-placeholder" style="overflow:hidden"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=600&fit=crop&q=80" alt="Преподаватель" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="img-placeholder" style="overflow:hidden;position:relative">
+          <svg viewBox="0 0 600 600" style="width:100%;height:100%;position:absolute;inset:0" xmlns="http://www.w3.org/2000/svg">
+            <rect width="600" height="600" fill="#1a1d2e"/>
+            <circle cx="300" cy="240" r="80" fill="rgba(245,166,35,0.12)"/>
+            <circle cx="300" cy="240" r="50" fill="rgba(245,166,35,0.08)"/>
+            <text x="300" y="240" text-anchor="middle" dominant-baseline="central" font-size="44" font-family="Inter,sans-serif">👩‍🏫</text>
+            <text x="300" y="400" text-anchor="middle" dominant-baseline="central" font-family="Inter,sans-serif" font-size="22" font-weight="700" fill="rgba(255,255,255,0.7)">Преподаватель-полиглот</text>
+            <text x="300" y="435" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" fill="rgba(255,255,255,0.4)">7+ лет опыта • 5 языков</text>
+          </svg>
+        </div>
         <div class="exp-badge"><span class="num">7+</span><span class="txt">лет опыта</span></div>
       </div>
       <div class="about-content fade-in-right">
