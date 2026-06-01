@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPro — изучение иностранных языков онлайн</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#0b0e1a;color:#fff;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.section{padding:100px 0}
+
+/* HEADER / NAV */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;background:rgba(11,14,26,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06);transition:.3s}
+.header .container{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:24px;letter-spacing:-.5px}
+.logo span{color:#f5a623}
+.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,#f5a623,#e8831a);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px}
+.nav{display:flex;gap:8px;align-items:center}
+.nav a{padding:8px 16px;font-size:14px;font-weight:500;color:rgba(255,255,255,.7);border-radius:8px;transition:.3s}
+.nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav .cta-btn{background:linear-gradient(135deg,#f5a623,#e8831a);color:#0b0e1a;font-weight:700;padding:10px 24px;border-radius:10px}
+.nav .cta-btn:hover{background:linear-gradient(135deg,#ffb840,#f09020);color:#0b0e1a}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.burger span{width:28px;height:3px;background:#fff;border-radius:2px;transition:.3s}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-bg .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.15}
+.hero-bg .orb:nth-child(1){width:500px;height:500px;background:#f5a623;top:-100px;right:-100px}
+.hero-bg .orb:nth-child(2){width:400px;height:400px;background:#6c63ff;bottom:-80px;left:-120px}
+.hero-bg .orb:nth-child(3){width:300px;height:300px;background:#f5a623;bottom:30%;left:40%;opacity:.08}
+.hero .container{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-left{}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.25);border-radius:50px;padding:6px 16px 6px 6px;font-size:13px;font-weight:500;color:#f5a623;margin-bottom:24px}
+.hero-badge .dot{width:26px;height:26px;border-radius:50%;background:#f5a623;display:flex;align-items:center;justify-content:center;color:#0b0e1a;font-weight:800;font-size:14px}
+.hero h1{font-size:52px;font-weight:900;line-height:1.1;letter-spacing:-1.5px;margin-bottom:20px}
+.hero h1 .highlight{background:linear-gradient(135deg,#f5a623,#ffb840);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:18px;line-height:1.6;color:rgba(255,255,255,.6);margin-bottom:32px;max-width:520px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#f5a623,#e8831a);color:#0b0e1a;font-weight:700;font-size:16px;padding:16px 36px;border-radius:12px;border:none;cursor:pointer;transition:.3s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(245,166,35,.3)}
+.btn-secondary{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#fff;font-weight:600;font-size:16px;padding:16px 36px;border-radius:12px;cursor:pointer;transition:.3s}
+.btn-secondary:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2)}
+.hero-stats{display:flex;gap:40px;margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,.06)}
+.hero-stats .stat h3{font-size:32px;font-weight:800;color:#f5a623}
+.hero-stats .stat p{font-size:13px;color:rgba(255,255,255,.5);margin:0}
+.hero-right{position:relative;display:flex;justify-content:center}
+.hero-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:40px;backdrop-filter:blur(20px);width:100%;max-width:440px}
+.hero-card h3{font-size:20px;font-weight:700;margin-bottom:20px}
+.form-group{margin-bottom:16px}
+.form-group input,.form-group select{width:100%;padding:14px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;color:#fff;font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:.3s}
+.form-group input::placeholder{color:rgba(255,255,255,.3)}
+.form-group input:focus,.form-group select:focus{border-color:#f5a623;background:rgba(245,166,35,.05)}
+.form-group select option{background:#1a1d2e;color:#fff}
+.form-submit{width:100%;padding:16px;background:linear-gradient(135deg,#f5a623,#e8831a);color:#0b0e1a;font-weight:700;font-size:16px;border:none;border-radius:10px;cursor:pointer;transition:.3s;font-family:'Inter',sans-serif}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(245,166,35,.25)}
+.form-hint{font-size:12px;color:rgba(255,255,255,.35);text-align:center;margin-top:12px}
+.form-hint a{color:#f5a623;text-decoration:underline}
+
+/* SECTION HEADER */
+.section-header{text-align:center;margin-bottom:60px}
+.section-header .label{display:inline-block;font-size:13px;font-weight:600;color:#f5a623;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.section-header h2{font-size:40px;font-weight:800;letter-spacing:-1px;line-height:1.2}
+.section-header h2 .highlight{background:linear-gradient(135deg,#f5a623,#ffb840);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.section-header p{font-size:17px;color:rgba(255,255,255,.5);margin-top:16px;max-width:600px;margin-left:auto;margin-right:auto}
+
+/* LANGUAGES */
+.languages{background:linear-gradient(180deg,#0b0e1a,#111627)}
+.lang-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.lang-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:32px 20px;text-align:center;transition:.3s;cursor:default}
+.lang-card:hover{background:rgba(245,166,35,.06);border-color:rgba(245,166,35,.2);transform:translateY(-4px)}
+.lang-card .flag{font-size:48px;margin-bottom:16px;display:block}
+.lang-card h4{font-size:18px;font-weight:700;margin-bottom:6px}
+.lang-card p{font-size:13px;color:rgba(255,255,255,.5);margin:0}
+.lang-card .level{display:inline-block;margin-top:12px;font-size:11px;font-weight:600;color:#f5a623;background:rgba(245,166,35,.1);padding:4px 12px;border-radius:50px}
+
+/* ABOUT */
+.about{background:#0b0e1a}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-image{position:relative}
+.about-image .img-placeholder{width:100%;aspect-ratio:1;border-radius:20px;background:linear-gradient(135deg,rgba(245,166,35,.1),rgba(108,99,255,.08));border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:120px;overflow:hidden}
+.about-image .img-placeholder .emoji{font-size:100px}
+.about-image .exp-badge{position:absolute;bottom:-20px;right:-20px;background:linear-gradient(135deg,#f5a623,#e8831a);color:#0b0e1a;padding:20px 28px;border-radius:16px;font-weight:800;text-align:center}
+.about-image .exp-badge .num{font-size:36px;display:block;line-height:1}
+.about-image .exp-badge .txt{font-size:12px;font-weight:600;opacity:.8}
+.about-content h2{font-size:36px;font-weight:800;letter-spacing:-1px;line-height:1.2;margin-bottom:20px}
+.about-content .highlight{background:linear-gradient(135deg,#f5a623,#ffb840);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.about-content p{font-size:16px;line-height:1.7;color:rgba(255,255,255,.6);margin-bottom:24px}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.about-features li{list-style:none;display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,.7)}
+.about-features li .check{width:20px;height:20px;border-radius:6px;background:rgba(245,166,35,.15);display:flex;align-items:center;justify-content:center;color:#f5a623;font-size:12px;flex-shrink:0}
+
+/* METHOD */
+.method{background:#111627;position:relative;overflow:hidden}
+.method .method-bg{position:absolute;inset:0;pointer-events:none}
+.method .method-bg .orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.08}
+.method .method-bg .orb:nth-child(1){width:400px;height:400px;background:#f5a623;top:-100px;left:-100px}
+.method .method-bg .orb:nth-child(2){width:300px;height:300px;background:#6c63ff;bottom:-80px;right:-80px}
+.method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;z-index:1}
+.method-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:32px 28px;transition:.3s}
+.method-card:hover{border-color:rgba(245,166,35,.2);transform:translateY(-4px)}
+.method-card .icon{width:48px;height:48px;border-radius:12px;background:rgba(245,166,35,.1);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px}
+.method-card h4{font-size:18px;font-weight:700;margin-bottom:10px}
+.method-card p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.55);margin:0}
+
+.method-result{margin-top:60px;background:rgba(245,166,35,.05);border:1px solid rgba(245,166,35,.15);border-radius:20px;padding:40px;text-align:center;position:relative;z-index:1}
+.method-result h3{font-size:24px;font-weight:700;margin-bottom:12px}
+.method-result p{font-size:16px;color:rgba(255,255,255,.6);max-width:700px;margin:0 auto 24px}
+.method-result .stats{display:flex;justify-content:center;gap:60px}
+.method-result .stats .item h4{font-size:36px;font-weight:800;color:#f5a623}
+.method-result .stats .item p{font-size:13px;color:rgba(255,255,255,.5);margin:0}
+
+/* PRICING */
+.pricing{background:#0b0e1a}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pricing-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:36px 28px;transition:.3s;position:relative}
+.pricing-card.featured{border-color:#f5a623;background:rgba(245,166,35,.04)}
+.pricing-card.featured .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#f5a623,#e8831a);color:#0b0e1a;font-size:12px;font-weight:700;padding:6px 20px;border-radius:50px;white-space:nowrap}
+.pricing-card:hover{transform:translateY(-4px);border-color:rgba(245,166,35,.2)}
+.pricing-card .lang-icon{font-size:36px;margin-bottom:12px}
+.pricing-card h4{font-size:20px;font-weight:700;margin-bottom:4px}
+.pricing-card .level-tag{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:16px}
+.pricing-card .price{font-size:40px;font-weight:800;margin-bottom:4px}
+.pricing-card .price span{font-size:16px;font-weight:400;color:rgba(255,255,255,.4)}
+.pricing-card .per{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:20px}
+.pricing-card ul{margin-bottom:24px}
+.pricing-card ul li{list-style:none;font-size:14px;color:rgba(255,255,255,.65);padding:6px 0;display:flex;align-items:center;gap:8px}
+.pricing-card ul li::before{content:"✓";color:#f5a623;font-weight:700}
+.pricing-card .btn-pricing{width:100%;padding:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#fff;font-weight:600;font-size:15px;border-radius:10px;cursor:pointer;transition:.3s;font-family:'Inter',sans-serif;text-align:center;display:block}
+.pricing-card .btn-pricing:hover{background:rgba(245,166,35,.15);border-color:#f5a623}
+.pricing-card.featured .btn-pricing{background:linear-gradient(135deg,#f5a623,#e8831a);color:#0b0e1a;font-weight:700;border:none}
+.pricing-card.featured .btn-pricing:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(245,166,35,.25)}
+
+/* APPLICATION FORM SECTION */
+.application{background:#111627}
+.application-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.app-info h2{font-size:36px;font-weight:800;letter-spacing:-1px;line-height:1.2;margin-bottom:16px}
+.app-info .highlight{background:linear-gradient(135deg,#f5a623,#ffb840);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.app-info p{font-size:16px;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:24px}
+.app-info .benefits{display:flex;flex-direction:column;gap:12px}
+.app-info .benefits li{list-style:none;display:flex;align-items:center;gap:12px;font-size:15px;color:rgba(255,255,255,.7)}
+.app-info .benefits li .icon{width:24px;height:24px;border-radius:8px;background:rgba(245,166,35,.12);display:flex;align-items:center;justify-content:center;color:#f5a623;font-size:13px;flex-shrink:0}
+.app-form{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:36px}
+.app-form h3{font-size:22px;font-weight:700;margin-bottom:24px;text-align:center}
+.app-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.app-form .form-group{margin-bottom:0}
+.app-form .form-group.full{grid-column:span 2}
+.app-form textarea{width:100%;padding:14px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;color:#fff;font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:.3s;resize:vertical;min-height:80px}
+.app-form textarea::placeholder{color:rgba(255,255,255,.3)}
+.app-form textarea:focus{border-color:#f5a623;background:rgba(245,166,35,.05)}
+
+/* REVIEWS */
+.reviews{background:#0b0e1a}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.review-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:28px;transition:.3s}
+.review-card:hover{border-color:rgba(245,166,35,.15)}
+.review-card .stars{color:#f5a623;font-size:16px;margin-bottom:12px;letter-spacing:2px}
+.review-card blockquote{font-size:14px;line-height:1.7;color:rgba(255,255,255,.65);margin-bottom:16px;font-style:italic}
+.review-card .author{display:flex;align-items:center;gap:12px}
+.review-card .author .avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(245,166,35,.2),rgba(108,99,255,.15));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;color:#f5a623}
+.review-card .author .info strong{display:block;font-size:14px;font-weight:600}
+.review-card .author .info span{font-size:12px;color:rgba(255,255,255,.4)}
+
+/* FINAL CTA */
+.final-cta{background:#111627;position:relative;overflow:hidden;padding:120px 0}
+.final-cta .cta-bg{position:absolute;inset:0;pointer-events:none}
+.final-cta .cta-bg .orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:.1}
+.final-cta .cta-bg .orb:nth-child(1){width:500px;height:500px;background:#f5a623;top:-150px;right:-100px}
+.final-cta .cta-bg .orb:nth-child(2){width:400px;height:400px;background:#6c63ff;bottom:-120px;left:-100px}
+.final-cta .container{position:relative;z-index:1;text-align:center}
+.final-cta h2{font-size:44px;font-weight:900;letter-spacing:-1.5px;line-height:1.15;margin-bottom:16px}
+.final-cta h2 .highlight{background:linear-gradient(135deg,#f5a623,#ffb840);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.final-cta p{font-size:18px;color:rgba(255,255,255,.55);max-width:600px;margin:0 auto 36px}
+.final-cta .cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.final-cta .guarantee{display:flex;justify-content:center;gap:32px;margin-top:40px;flex-wrap:wrap}
+.final-cta .guarantee span{font-size:14px;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:8px}
+.final-cta .guarantee span .check{color:#f5a623}
+
+/* FOOTER */
+.footer{background:#080b15;padding:40px 0;border-top:1px solid rgba(255,255,255,.04)}
+.footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer p{font-size:13px;color:rgba(255,255,255,.3)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.35);transition:.3s}
+.footer-links a:hover{color:#f5a623}
+
+/* SUCCESS MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);align-items:center;justify-content:center}
+.modal-overlay.active{display:flex}
+.modal{background:#1a1d2e;border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:48px;max-width:420px;width:90%;text-align:center}
+.modal .icon{font-size:56px;margin-bottom:16px}
+.modal h3{font-size:24px;font-weight:700;margin-bottom:8px}
+.modal p{font-size:15px;color:rgba(255,255,255,.55);margin-bottom:24px}
+.modal .btn-primary{padding:14px 40px;font-size:15px}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(30px);transition:all .6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in-left{opacity:0;transform:translateX(-40px);transition:all .6s ease}
+.fade-in-left.visible{opacity:1;transform:translateX(0)}
+.fade-in-right{opacity:0;transform:translateX(40px);transition:all .6s ease}
+.fade-in-right.visible{opacity:1;transform:translateX(0)}
+
+/* MOBILE */
+@media(max-width:1024px){
+  .hero .container{grid-template-columns:1fr;gap:40px}
+  .hero h1{font-size:40px}
+  .hero-right .hero-card{max-width:100%}
+  .lang-grid{grid-template-columns:repeat(3,1fr)}
+  .pricing-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}
+  .method-grid{grid-template-columns:1fr 1fr}
+  .review-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav{display:none;position:fixed;top:72px;left:0;right:0;background:#0b0e1a;border-bottom:1px solid rgba(255,255,255,.06);padding:16px 20px;flex-direction:column;gap:4px}
+  .nav.open{display:flex}
+  .nav a{padding:12px 16px;width:100%}
+  .burger{display:flex}
+  .hero h1{font-size:32px}
+  .hero-stats{flex-wrap:wrap;gap:24px}
+  .hero-stats .stat h3{font-size:26px}
+  .about-grid{grid-template-columns:1fr;gap:32px}
+  .about-features{grid-template-columns:1fr}
+  .lang-grid{grid-template-columns:repeat(2,1fr)}
+  .section-header h2{font-size:28px}
+  .method-grid{grid-template-columns:1fr}
+  .method-result .stats{flex-direction:column;gap:20px}
+  .application-grid{grid-template-columns:1fr;gap:32px}
+  .app-form .form-row{grid-template-columns:1fr}
+  .app-form .form-group.full{grid-column:span 1}
+  .review-grid{grid-template-columns:1fr}
+  .final-cta h2{font-size:30px}
+  .pricing-card.featured .badge{white-space:normal;top:-16px;font-size:11px;padding:4px 14px}
+  .footer .container{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+  .lang-grid{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:28px}
+  .hero-btns{flex-direction:column}
+  .hero-btns .btn-primary,.hero-btns .btn-secondary{width:100%;justify-content:center}
+  .section{padding:60px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="container">
+    <a href="#hero" class="logo">
+      <div class="logo-icon">LP</div>
+      Lingua<span>Pro</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#languages">Языки</a>
+      <a href="#about">Об эксперте</a>
+      <a href="#method">Методика</a>
+      <a href="#pricing">Цены</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#cta" class="cta-btn">Бесплатный урок</a>
+    </nav>
+    <div class="burger" id="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+  <div class="container">
+    <div class="hero-left fade-in-left">
+      <div class="hero-badge">
+        <span class="dot">5</span>
+        языков для взрослых и детей
+      </div>
+      <h1>Заговорите на иностранном языке<br><span class="highlight">свободно и уверенно</span></h1>
+      <p>Индивидуальные занятия с экспертом-полиглотом. Английский, немецкий, французский, корейский и китайский — с нуля до продвинутого уровня.</p>
+      <div class="hero-btns">
+        <a href="#cta" class="btn-primary">Записаться на пробный</a>
+        <a href="#method" class="btn-secondary">Как мы учим</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><h3>500+</h3><p>учеников</p></div>
+        <div class="stat"><h3>7 лет</h3><p>опыта преподавания</p></div>
+        <div class="stat"><h3>5</h3><p>языков</p></div>
+      </div>
+    </div>
+    <div class="hero-right fade-in-right">
+      <div class="hero-card">
+        <h3>🔓 Первый урок — бесплатно</h3>
+        <form id="heroForm" onsubmit="submitForm(event)">
+          <div class="form-group">
+            <input type="text" placeholder="Ваше имя" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" placeholder="Номер телефона" required>
+          </div>
+          <div class="form-group">
+            <select required>
+              <option value="">Выберите язык</option>
+              <option>Английский</option>
+              <option>Немецкий</option>
+              <option>Французский</option>
+              <option>Корейский</option>
+              <option>Китайский</option>
+            </select>
+          </div>
+          <button type="submit" class="form-submit">Хочу пробный урок</button>
+        </form>
+        <p class="form-hint">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section class="section languages" id="languages">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="label">какие языки</div>
+      <h2>Выберите свой <span class="highlight">язык</span></h2>
+      <p>Преподаю 5 языков — от европейских до азиатских. Любой уровень подготовки.</p>
+    </div>
+    <div class="lang-grid">
+      <div class="lang-card fade-in"><span class="flag">🇬🇧</span><h4>Английский</h4><p>Международный язык общения, бизнеса и путешествий</p><span class="level">A1 — C2</span></div>
+      <div class="lang-card fade-in"><span class="flag">🇩🇪</span><h4>Немецкий</h4><p>Язык науки, технологий и европейского бизнеса</p><span class="level">A1 — C1</span></div>
+      <div class="lang-card fade-in"><span class="flag">🇫🇷</span><h4>Французский</h4><p>Язык любви, культуры и международной дипломатии</p><span class="level">A1 — C1</span></div>
+      <div class="lang-card fade-in"><span class="flag">🇰🇷</span><h4>Корейский</h4><p>Язык K-pop, дорам и современных технологий</p><span class="level">A1 — B2</span></div>
+      <div class="lang-card fade-in"><span class="flag">🇨🇳</span><h4>Китайский</h4><p>Самый распространённый язык мира — язык будущего</p><span class="level">A1 — B2</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image fade-in-left">
+        <div class="img-placeholder"><span class="emoji">👩‍🏫</span></div>
+        <div class="exp-badge"><span class="num">7+</span><span class="txt">лет опыта</span></div>
+      </div>
+      <div class="about-content fade-in-right">
+        <div class="label" style="font-size:13px;font-weight:600;color:#f5a623;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px">об эксперте</div>
+        <h2>Преподаватель-полиглот с опытом <span class="highlight">7 лет</span></h2>
+        <p>Меня зовут [Ваше Имя]. Я преподаю иностранные языки более 7 лет, говорю на 5 языках и помогаю своим ученикам заговорить свободно уже через 3 месяца регулярных занятий.</p>
+        <p>Мои ученики сдают экзамены, переезжают за границу, получают повышение на работе и просто смотрят фильмы в оригинале. Я знаю, как сделать изучение языка эффективным и увлекательным.</p>
+        <ul class="about-features">
+          <li><span class="check">✓</span>Диплом МГУ по лингвистике</li>
+          <li><span class="check">✓</span>Сертификаты CELTA, DELF, TestDaF</li>
+          <li><span class="check">✓</span>Жила в 4 странах</li>
+          <li><span class="check">✓</span>Авторской методике обучения</li>
+          <li><span class="check">✓</span>500+ успешных учеников</li>
+          <li><span class="check">✓</span>Индивидуальный подход</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="section method" id="method">
+  <div class="method-bg">
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="label">методика</div>
+      <h2>Почему моя методика <span class="highlight">работает</span></h2>
+      <p>Я объединила лучшие мировые практики, чтобы вы заговорили максимально быстро.</p>
+    </div>
+    <div class="method-grid">
+      <div class="method-card fade-in">
+        <div class="icon">🗣️</div>
+        <h4>Коммуникативный подход</h4>
+        <p>70% занятия — это разговорная практика. Вы начинаете говорить с первого урока, без страха сделать ошибку.</p>
+      </div>
+      <div class="method-card fade-in">
+        <div class="icon">🧠</div>
+        <h4>Нейро-методика запоминания</h4>
+        <p>Использую техники интервального повторения и ассоциативного запоминания — слова остаются в памяти навсегда.</p>
+      </div>
+      <div class="method-card fade-in">
+        <div class="icon">🎯</div>
+        <h4>Целевой подход</h4>
+        <p>Мы не учим «всё подряд». Только то, что нужно именно вам: для работы, путешествий, учёбы или переезда.</p>
+      </div>
+      <div class="method-card fade-in">
+        <div class="icon">📱</div>
+        <h4>Цифровая среда обучения</h4>
+        <p>Интерактивные платформы, приложения, видео, подкасты — всё современное и живое. Никаких скучных учебников.</p>
+      </div>
+      <div class="method-card fade-in">
+        <div class="icon">🎬</div>
+        <h4>Погружение в культуру</h4>
+        <p>Фильмы, музыка, сериалы, новости — изучаем язык через настоящий культурный контент страны.</p>
+      </div>
+      <div class="method-card fade-in">
+        <div class="icon">📊</div>
+        <h4>Прозрачный прогресс</h4>
+        <p>После каждого занятия — трекинг результата. Вы видите свой рост в цифрах и чувствуете уверенность.</p>
+      </div>
+    </div>
+    <div class="method-result fade-in">
+      <h3>Результат, который вы получите</h3>
+      <p>Мои ученики замечают прогресс уже после 2 недель занятий. Через 3 месяца — свободно поддерживают диалог. Через 6 — смотрят фильмы и читают книги в оригинале.</p>
+      <div class="stats">
+        <div class="item"><h4>87%</h4><p>учеников достигают цели за 3 месяца</p></div>
+        <div class="item"><h4>3×</h4><p>быстрее vs традиционные методы</p></div>
+        <div class="item"><h4>500+</h4><p>довольных учеников</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing" id="pricing">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="label">цены</div>
+      <h2>Стоимость <span class="highlight">занятий</span></h2>
+      <p>Выберите комфортный формат. Каждое занятие — индивидуальное, с полной вовлечённостью преподавателя.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card fade-in">
+        <div class="lang-icon">🗣️</div>
+        <h4>Индивидуальное</h4>
+        <div class="level-tag">1 занятие</div>
+        <div class="price">2 500 <span>₽</span></div>
+        <div class="per">за 60 минут</div>
+        <ul>
+          <li>Индивидуальная программа</li>
+          <li>Разбор ваших пробелов</li>
+          <li>Домашние задания</li>
+          <li>Обратная связь 24/7</li>
+        </ul>
+        <a href="#cta" class="btn-pricing">Записаться</a>
+      </div>
+      <div class="pricing-card featured fade-in">
+        <span class="badge">🔥 Самое популярное</span>
+        <div class="lang-icon">📦</div>
+        <h4>Пакет 8 занятий</h4>
+        <div class="level-tag">2 месяца</div>
+        <div class="price">17 900 <span>₽</span></div>
+        <div class="per">≈ 2 238 ₽ за урок</div>
+        <ul>
+          <li>Всё из индвидуального</li>
+          <li>Скидка 10%</li>
+          <li>Бесплатная консультация</li>
+          <li>Переносы занятий</li>
+        </ul>
+        <a href="#cta" class="btn-pricing">Записаться</a>
+      </div>
+      <div class="pricing-card fade-in">
+        <div class="lang-icon">🚀</div>
+        <h4>Пакет 16 занятий</h4>
+        <div class="level-tag">4 месяца</div>
+        <div class="price">31 900 <span>₽</span></div>
+        <div class="per">≈ 1 994 ₽ за урок</div>
+        <ul>
+          <li>Всё из пакета 8 уроков</li>
+          <li>Скидка 20%</li>
+          <li>+ 2 урока в подарок</li>
+          <li>Приоритетное расписание</li>
+        </ul>
+        <a href="#cta" class="btn-pricing">Записаться</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION -->
+<section class="section application" id="cta">
+  <div class="container">
+    <div class="application-grid">
+      <div class="app-info fade-in-left">
+        <div class="label" style="font-size:13px;font-weight:600;color:#f5a623;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px">оставьте заявку</div>
+        <h2>Запишитесь на <span class="highlight">бесплатный</span> пробный урок</h2>
+        <p>Познакомимся, определим ваш уровень, составим индивидуальный план обучения. Первый урок — абсолютно бесплатно.</p>
+        <ul class="benefits">
+          <li><span class="icon">✓</span>Определим ваш реальный уровень языка</li>
+          <li><span class="icon">✓</span>Составим персональную программу</li>
+          <li><span class="icon">✓</span>Покажем методику на практике</li>
+          <li><span class="icon">✓</span>Никаких обязательств</li>
+        </ul>
+      </div>
+      <div class="app-form fade-in-right">
+        <h3>Заполните форму</h3>
+        <form id="appForm" onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" placeholder="Ваше имя" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" placeholder="Телефон" required>
+            </div>
+          </div>
+          <div class="form-row" style="margin-top:16px">
+            <div class="form-group">
+              <select required>
+                <option value="">Выберите язык</option>
+                <option>Английский</option>
+                <option>Немецкий</option>
+                <option>Французский</option>
+                <option>Корейский</option>
+                <option>Китайский</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select required>
+                <option value="">Ваш уровень</option>
+                <option>С нуля (A0)</option>
+                <option>Начальный (A1-A2)</option>
+                <option>Средний (B1)</option>
+                <option>Выше среднего (B2)</option>
+                <option>Продвинутый (C1)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group full" style="margin-top:16px">
+            <textarea placeholder="Ваша цель (необязательно)"></textarea>
+          </div>
+          <div class="form-group full" style="margin-top:16px">
+            <button type="submit" class="form-submit">Хочу на пробный урок</button>
+          </div>
+        </form>
+        <p class="form-hint">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section reviews" id="reviews">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="label">отзывы</div>
+      <h2>Что говорят <span class="highlight">ученики</span></h2>
+      <p>Более 500 учеников уже заговорили на иностранном языке. Вот что они рассказывают.</p>
+    </div>
+    <div class="review-grid">
+      <div class="review-card fade-in">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Начала учить корейский с нуля. Через 3 месяца уже могла поддержать простой разговор и читала хангыль без проблем. Преподаватель нашла подход и влюбила в язык!"</blockquote>
+        <div class="author">
+          <div class="avatar">А</div>
+          <div class="info"><strong>Анна</strong><span>Корейский, 3 месяца</span></div>
+        </div>
+      </div>
+      <div class="review-card fade-in">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Английский нужен был для работы. За полгода подняли уровень с A2 до B2. Теперь спокойно веду переговоры с иностранными партнёрами. Спасибо!"</blockquote>
+        <div class="author">
+          <div class="avatar">М</div>
+          <div class="info"><strong>Михаил</strong><span>Английский, 6 месяцев</span></div>
+        </div>
+      </div>
+      <div class="review-card fade-in">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Готовился к Goethe-Zertifikat B1. Экзамен сдал на 89 баллов! Отдельное спасибо за разговорную практику — перестал бояться говорить."</blockquote>
+        <div class="author">
+          <div class="avatar">Д</div>
+          <div class="info"><strong>Дмитрий</strong><span>Немецкий, подготовка к экзамену</span></div>
+        </div>
+      </div>
+      <div class="review-card fade-in">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Французский — моя давняя мечта. Занимаюсь 4 месяца и уже могу обсуждать любимые фильмы. Методика правда работает, я в восторге!"</blockquote>
+        <div class="author">
+          <div class="avatar">Е</div>
+          <div class="info"><strong>Елена</strong><span>Французский, 4 месяца</span></div>
+        </div>
+      </div>
+      <div class="review-card fade-in">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Китайский казался чем-то невозможным. Но уже через месяц я понимала тоны и писала иероглифы. Индивидуальный подход и терпение преподавателя творят чудеса."</blockquote>
+        <div class="author">
+          <div class="avatar">С</div>
+          <div class="info"><strong>Светлана</strong><span>Китайский, 2 месяца</span></div>
+        </div>
+      </div>
+      <div class="review-card fade-in">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Дочь занимается английским (10 лет). Ребёнок сам ждёт уроков! За полгода оценка в школе поднялась с 3 на 5. Огромная благодарность!"</blockquote>
+        <div class="author">
+          <div class="avatar">Т</div>
+          <div class="info"><strong>Татьяна</strong><span>Английский для детей, 6 месяцев</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="final-cta">
+  <div class="cta-bg">
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-header">
+        <div class="label">начните сегодня</div>
+      </div>
+      <h2>Готовы заговорить на новом языке?<br><span class="highlight">Первый урок — бесплатно</span></h2>
+      <p>Не откладывайте мечту. Попробуйте — и вы увидите, как легко и увлекательно может быть изучение языков.</p>
+      <div class="cta-buttons">
+        <a href="#cta" class="btn-primary">Записаться на пробный</a>
+        <a href="#cta" class="btn-secondary">Задать вопрос</a>
+      </div>
+      <div class="guarantee">
+        <span><span class="check">✓</span> Без обязательств</span>
+        <span><span class="check">✓</span> Индивидуальный план</span>
+        <span><span class="check">✓</span> Подарок при покупке пакета</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p>© 2025 LinguaPro. Все права защищены.</p>
+    <div class="footer-links">
+      <a href="#">Политика конфиденциальности</a>
+      <a href="#">Договор оферты</a>
+      <a href="#">Контакты</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="icon">🎉</div>
+    <h3>Спасибо за заявку!</h3>
+    <p>Мы свяжемся с вами в ближайшее время и договоримся о первом бесплатном уроке.</p>
+    <button class="btn-primary" onclick="closeModal()">Отлично, жду</button>
+  </div>
+</div>
+
+<script>
+function toggleMenu(){
+  document.getElementById('nav').classList.toggle('open');
+}
+document.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', () => {
+  document.getElementById('nav').classList.remove('open');
+}));
+
+function submitForm(e){
+  e.preventDefault();
+  document.getElementById('modal').classList.add('active');
+  e.target.reset();
+}
+function closeModal(){
+  document.getElementById('modal').classList.remove('active');
+}
+document.getElementById('modal').addEventListener('click', function(e){
+  if(e.target === this) closeModal();
+});
+
+// Intersection Observer for animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
+
+// Lazy initial check
+setTimeout(() => {
+  document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight) el.classList.add('visible');
+  });
+}, 100);
+</script>
+</body>
+</html>
