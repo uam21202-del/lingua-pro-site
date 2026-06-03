@@ -4,10 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lingua Expert — учите языки с носителем</title>
-  <!-- Google Fonts: Pacifico, Montserrat Medium, Open Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,6 +25,7 @@
         <li><a href="#method">Методика</a></li>
         <li><a href="#pricing">Услуги</a></li>
         <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#form">Контакты</a></li>
       </ul>
     </div>
   </nav>
@@ -35,12 +35,12 @@
     <div class="container hero-container">
       <div class="hero-text">
         <h1>Выучите язык за 6 месяцев с носителем</h1>
-        <p class="hero-subtitle">Индивидуальные занятия с экспертом: английский, немецкий, французский, корейский, китайский</p>
-        <a href="#pricing" class="btn btn-primary">Получить бесплатный урок</a>
+        <p class="hero-subtitle">Индивидуальные занятия с экспертом:<br>английский, немецкий, французский, корейский, китайский</p>
+        <a href="#form" class="btn btn-primary pulse">Получить бесплатный урок</a>
       </div>
       <div class="hero-photo">
         <div class="photo-container">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="Преподаватель Lingua Expert" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="Преподаватель английского, Анна Иванова" loading="lazy">
         </div>
       </div>
     </div>
@@ -52,35 +52,30 @@
       <h2 class="section-title">Доступные языки</h2>
       <p class="section-subtitle">Выберите язык и начните путь к свободному общению</p>
       <div class="lang-grid">
-        <!-- Английский -->
         <div class="lang-card">
           <span class="flag">🇬🇧</span>
           <h3>Английский</h3>
           <span class="lang-level">A1 – C2</span>
           <p>Говорите свободно за 3 месяца</p>
         </div>
-        <!-- Немецкий -->
         <div class="lang-card">
           <span class="flag">🇩🇪</span>
           <h3>Немецкий</h3>
           <span class="lang-level">A1 – C2</span>
           <p>Заговорите на Goethe-Level</p>
         </div>
-        <!-- Французский -->
         <div class="lang-card">
           <span class="flag">🇫🇷</span>
           <h3>Французский</h3>
           <span class="lang-level">A1 – C2</span>
           <p>Романтика языка за 4 месяца</p>
         </div>
-        <!-- Корейский -->
         <div class="lang-card">
           <span class="flag">🇰🇷</span>
           <h3>Корейский</h3>
           <span class="lang-level">A1 – C2</span>
           <p>K-pop и TOPIK — всё реально</p>
         </div>
-        <!-- Китайский -->
         <div class="lang-card">
           <span class="flag">🇨🇳</span>
           <h3>Китайский</h3>
@@ -101,8 +96,21 @@
       </div>
       <div class="about-text">
         <h2 class="section-title">Обо мне</h2>
-        <p>Более 10 лет я помогаю студентам со всего мира осваивать иностранные языки. Имею международные сертификаты CELTA, DELF, TestDaF и HSK. Мои ученики успешно сдают IELTS, TOEFL, TOPIK и Cambridge Exams.</p>
-        <p>Я убеждена: язык — это не школьная зубрёжка, а живой инструмент общения. Каждый мой урок — это шаг к вашей уверенности и свободе.</p>
+        <div class="about-icons">
+          <div class="about-icon-item">
+            <svg viewBox="0 0 24 24" fill="#4366E5" width="32" height="32"><path d="M12 2L1 21h22L12 2zm0 3.5L19.5 19h-15L12 5.5z"/><path d="M11 10h2v5h-2zm0 7h2v2h-2z"/></svg>
+            <span>Сертифицированный преподаватель CELTA, DELF, TestDaF, HSK</span>
+          </div>
+          <div class="about-icon-item">
+            <svg viewBox="0 0 24 24" fill="#4366E5" width="32" height="32"><path d="M4 4h16v2H4zm0 4h16v2H4zm0 4h16v2H4zm0 4h12v2H4z"/></svg>
+            <span>Диплом МГУ им. Ломоносова, 10+ лет преподавания</span>
+          </div>
+          <div class="about-icon-item">
+            <svg viewBox="0 0 24 24" fill="#4366E5" width="32" height="32"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+            <span>Устный переводчик на международных конференциях</span>
+          </div>
+        </div>
+        <p class="about-desc">Более 10 лет я помогаю студентам со всего мира осваивать иностранные языки. Мои ученики успешно сдают IELTS, TOEFL, TOPIK и Cambridge Exams. Я убеждена: язык — это не школьная зубрёжка, а живой инструмент общения.</p>
         <div class="fact-badge">Подготовила 50+ студентов к IELTS 7.0+</div>
       </div>
     </div>
@@ -115,22 +123,28 @@
       <p class="section-subtitle">Три принципа, которые гарантируют результат</p>
       <div class="method-grid">
         <div class="method-card">
-          <div class="method-icon">🌊</div>
+          <div class="method-icon">
+            <svg viewBox="0 0 24 24" fill="#4366E5" width="48" height="48"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          </div>
           <h3>Погружение в язык</h3>
           <p>С первого дня вы слушаете, читаете и говорите на языке — без посредников и переводчиков.</p>
         </div>
         <div class="method-card">
-          <div class="method-icon">🗣️</div>
+          <div class="method-icon">
+            <svg viewBox="0 0 24 24" fill="#4366E5" width="48" height="48"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/><path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/></svg>
+          </div>
           <h3>Разговорная практика с 1-го урока</h3>
-          <p>Никакой грамматики ради грамматики. 70 % времени урока — это ваша речь.</p>
+          <p>Никакой грамматики ради грамматики. 70 % времени урока — это ваша речь и живые диалоги.</p>
         </div>
         <div class="method-card">
-          <div class="method-icon">📋</div>
+          <div class="method-icon">
+            <svg viewBox="0 0 24 24" fill="#4366E5" width="48" height="48"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/><path d="M7 12h2v5H7zm4-3h2v8h-2zm4-4h2v12h-2z"/></svg>
+          </div>
           <h3>Персональный план</h3>
           <p>Я составляю программу под ваш уровень, ритм и цель — будь то работа, учёба или переезд.</p>
         </div>
       </div>
-      <p class="method-stat">★ 95 % учеников достигают цели за срок по договору</p>
+      <div class="method-stat">★ 95 % учеников достигают цели за срок по договору</div>
     </div>
   </section>
 
@@ -140,31 +154,28 @@
       <h2 class="section-title">Услуги и расценки</h2>
       <p class="section-subtitle">Выберите формат, который подходит именно вам</p>
       <div class="price-cards">
-        <!-- Индивидуальное -->
         <div class="price-card">
           <h3>Индивидуально</h3>
           <p class="price">3 500 ₽<span>/урок</span></p>
           <ul>
             <li>60 минут с преподавателем</li>
             <li>Персональная программа</li>
-            <li>Проверка домашек</li>
+            <li>Проверка домашних заданий</li>
             <li>Чат с поддержкой 24/7</li>
           </ul>
-          <a href="#form" class="btn btn-primary">Выбрать</a>
+          <a href="#form" class="btn btn-primary pulse">Выбрать</a>
         </div>
-        <!-- В группе -->
         <div class="price-card">
           <h3>В группе</h3>
           <p class="price">1 500 ₽<span>/урок</span></p>
           <ul>
             <li>90 минут в группе до 6 чел.</li>
-            <li>Живые диалоги</li>
+            <li>Живые диалоги и ролевые игры</li>
             <li>Разговорные клубы</li>
-            <li>Обратная связь</li>
+            <li>Обратная связь после урока</li>
           </ul>
-          <a href="#form" class="btn btn-primary">Выбрать</a>
+          <a href="#form" class="btn btn-primary pulse">Выбрать</a>
         </div>
-        <!-- Интенсив -->
         <div class="price-card price-card-featured">
           <div class="badge">Хит</div>
           <h3>Интенсив</h3>
@@ -175,11 +186,11 @@
             <li>Доступ к материалам</li>
             <li>Сертификат по окончании</li>
           </ul>
-          <a href="#form" class="btn btn-primary">Выбрать</a>
+          <a href="#form" class="btn btn-primary pulse">Выбрать</a>
         </div>
       </div>
 
-      <!-- Форма заявки -->
+      <!-- Форма -->
       <div class="form-wrapper" id="form">
         <h3>Запишитесь на пробный урок</h3>
         <form id="leadForm">
@@ -193,7 +204,7 @@
             <option value="korean">Корейский</option>
             <option value="chinese">Китайский</option>
           </select>
-          <button type="submit" class="btn btn-primary">Отправить</button>
+          <button type="submit" class="btn btn-primary pulse">Отправить</button>
         </form>
         <p class="form-note">Нажимая «Отправить», вы соглашаетесь с политикой конфиденциальности</p>
       </div>
@@ -206,27 +217,24 @@
       <h2 class="section-title">Отзывы студентов</h2>
       <p class="section-subtitle">Реальные истории реальных людей</p>
       <div class="slider" id="slider">
-        <!-- Слайд 1 -->
         <div class="slide active">
-          <div class="photo-container slide-photo">
+          <div class="slide-photo photo-container">
             <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="Мария, студентка английского" loading="lazy">
           </div>
           <h4>Мария</h4>
           <span class="slide-lang">Английский</span>
           <p>Сдала TOEFL на 105 баллов за 4 месяца. До этого не могла связать двух слов — сейчас свободно общаюсь с коллегами из США.</p>
         </div>
-        <!-- Слайд 2 -->
         <div class="slide">
-          <div class="photo-container slide-photo">
+          <div class="slide-photo photo-container">
             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Дмитрий, студент немецкого" loading="lazy">
           </div>
           <h4>Дмитрий</h4>
           <span class="slide-lang">Немецкий</span>
           <p>Переехал в Берлин по работе. За 5 месяцев с нуля дошёл до B1 — теперь веду переговоры с партнёрами без переводчика.</p>
         </div>
-        <!-- Слайд 3 -->
         <div class="slide">
-          <div class="photo-container slide-photo">
+          <div class="slide-photo photo-container">
             <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" alt="Анна, студентка французского" loading="lazy">
           </div>
           <h4>Анна</h4>
@@ -234,7 +242,6 @@
           <p>Подготовилась к DELF B2 за 3 месяца. Уроки проходят на одном дыхании — даже не замечаешь, как начинаешь думать на французском.</p>
         </div>
       </div>
-      <!-- Точки навигации -->
       <div class="slider-dots" id="sliderDots">
         <span class="dot active" data-index="0"></span>
         <span class="dot" data-index="1"></span>
@@ -243,11 +250,13 @@
     </div>
   </section>
 
-  <!-- ===== 7. ФИНАЛЬНЫЙ ПРИЗЫВ (CTA) ===== -->
+  <!-- ===== 7. ФИНАЛЬНЫЙ ПРИЗЫВ ===== -->
   <section class="section cta" id="cta">
+    <!-- Полупрозрачный глобус на фоне -->
+    <div class="cta-globe"></div>
     <div class="container cta-container">
-      <h2>Начните учить язык сегодня — скидка 20 % на первый месяц!</h2>
-      <a href="#form" class="btn btn-primary btn-large">Записаться на пробное занятие</a>
+      <h2>Начните учить язык сегодня —<br>скидка 20 % на первый месяц!</h2>
+      <a href="#form" class="btn btn-primary btn-large pulse">Записаться на пробное занятие</a>
     </div>
   </section>
 

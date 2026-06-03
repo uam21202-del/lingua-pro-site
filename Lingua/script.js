@@ -24,21 +24,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Показывает слайд по индексу
   function showSlide(index) {
-    // Скрываем все слайды
     slides.forEach(function (slide) {
       slide.classList.remove('active');
     });
-    // Убираем active у всех точек
     dots.forEach(function (dot) {
       dot.classList.remove('active');
     });
-    // Показываем нужный слайд
     slides[index].classList.add('active');
     dots[index].classList.add('active');
     currentIndex = index;
   }
 
-  // Переключение на следующий слайд
+  // Переключение на следующий слайд (автопрокрутка)
   function nextSlide() {
     var next = (currentIndex + 1) % slides.length;
     showSlide(next);
@@ -53,13 +50,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Сброс таймера автослайда
+  // Сброс таймера при ручном переключении
   function resetTimer() {
     clearInterval(slideInterval);
     slideInterval = setInterval(nextSlide, 5000);
   }
 
-  // Запуск автослайда, если есть больше 1 слайда
+  // Запуск автопрокрутки (5 секунд)
   if (slides.length > 1) {
     slideInterval = setInterval(nextSlide, 5000);
   }
@@ -74,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var phone = form.querySelector('input[name="phone"]').value.trim();
     var language = form.querySelector('select[name="language"]').value;
 
-    // Простейшая валидация
     if (!name) {
       alert('Пожалуйста, введите ваше имя.');
       return;
